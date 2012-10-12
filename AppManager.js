@@ -6,16 +6,22 @@
 // Copyright 2011 KC Reaney. All rights reserved.
 // MIT Licensed
 
-function AppManager(){
-}
+(function() {
+ 
+  var cordovaRef = window.PhoneGap || window.Cordova || window.cordova;
 
-AppManager.prototype.listApps = function(callback) {
-  PhoneGap.exec(callback, null, "AppManager", "listApps", []);
-};
-
-PhoneGap.addConstructor(function() {
-  if(!window.plugins){
-    window.plugins = {};
+  function AppManager(){
   }
-  window.plugins.appManager = new AppManager();
-});
+
+  AppManager.prototype.listApps = function(callback) {
+    cordovaRef.exec(callback, null, "AppManager", "listApps", []);
+  };
+
+  cordovaRef.addConstructor(function() {
+    if(!window.plugins){
+      window.plugins = {};
+    }
+    window.plugins.appManager = new AppManager();
+  });
+
+})();
