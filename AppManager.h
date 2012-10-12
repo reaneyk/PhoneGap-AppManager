@@ -8,13 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef PHONEGAP_FRAMEWORK
-#import <PhoneGap/PGPlugin.h>
-#else
-#import "PGPlugin.h"
-#endif
+#import <Cordova/CDVPlugin.h>
 
-@interface AppManager : PGPlugin {}
+@interface AppManager : CDVPlugin {}
 
 //List out all installed Applications on the device
 - (void) listApps:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;

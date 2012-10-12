@@ -7,7 +7,7 @@
 // MIT Licensed
 
 #import "AppManager.h"
-#import <PhoneGap/JSON.h> 
+#import <Cordova/JSONKit.h>
 
 @implementation AppManager
 
@@ -49,12 +49,13 @@
 	}
 	
 	NSDictionary *user = [cacheDict objectForKey: @"User"]; // Then all the user (App Store /var/mobile/Applications) apps
-  for(id key in user)
+  /*for(id key in user)
     NSLog(@"key=%@ value=%@", key, [user objectForKey:key]);
-
-  NSString *json = [user JSONRepresentation];
+   */
   
-  PluginResult* pluginResult = [PluginResult resultWithStatus:PGCommandStatus_OK messageAsString:json];
+  //NSString *json = [user cdvjk_JSONString];
+  
+  CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: user];
   [self writeJavascript: [pluginResult toSuccessCallbackString:callbackID]];
 
 }

@@ -8,3 +8,5 @@ by `KC Reaney`
 ##Installation##
 * Add the .h & .m files to your Plugins directory in XCode
 * Add 'AppManager' to the Plugins Dictionary of PhoneGap.plist
+
+See index.html for example usage
