@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <title>App Manager Demo</title>
 
-	<!-- replace with the version of Cordova you are running -->
-	<script type="text/javascript" src="cordova-2.1.0.js"></script>
-	<script type="text/javascript" src="AppManager.js"></script>
+  <!-- replace with the version of Cordova you are running -->
+  <script type="text/javascript" src="cordova-2.1.0.js"></script>
+  <script type="text/javascript" src="AppManager.js"></script>
 
-	<script type="text/javascript">
+  <script type="text/javascript">
     
     function onBodyLoad() {
       document.addEventListener('deviceready', load, false);
     }
 
-		function load() {
-			window.plugins.appManager.listApps(function(apps) {
+    function load() {
+      window.plugins.appManager.listApps(function(apps) {
         var list = document.getElementById('list');
         for (app in apps) {
           appName = apps[app].CFBundleDisplayName;
           list.innerHTML += '<li>' + appName + '</li>';
         }
-			});
-		}
+      });
+    }
 
-	</script>
+  </script>
 </head>
 <body onload="onBodyLoad()">
 <h1>App Manager</h1>
